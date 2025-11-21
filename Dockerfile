@@ -12,7 +12,11 @@ COPY gradlew.bat ./gradlew.bat
 COPY . .
 
 # Build the JAR (no tests)
+#RUN ./gradlew clean build -x test
+RUN chmod +x gradlew
 RUN ./gradlew clean build -x test
+
+
 
 # ----------- RUNTIME STAGE -------------
 FROM eclipse-temurin:17-jdk
